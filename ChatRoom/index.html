@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>聊天室</title>
+    <link rel="stylesheet" href="./static/css/index.css" />
+  </head>
+
+  <body>
+    <!-- 聊天室 -->
+    <div class="box">
+      <!-- 聊天室 - 左边 -->
+      <div class="room-left">
+        <!-- 聊天室 - 个人信息 -->
+        <div class="room-user-info">
+          <section class="user-info-img user-img">
+            <img src="./static/img/test_img.gif" class="radius" />
+          </section>
+        </div>
+        <!-- 聊天室 - 聊天对象列表 -->
+        <div class="room-user-list">
+          <div class="room-right-title">
+            <!-- 搜索 -->
+            <section class="room-search">
+              <!-- <img src="search.png" class="icon-s" /> -->
+            </section>
+            <!-- 添加 -->
+            <section class="room-add">
+              <img src="./static/img/add.png" class="icon-s" />
+            </section>
+          </div>
+          <ul class="room-list">
+            <!-- 聊天室 - 聊天对象 -->
+            <li class="room-user-row" data-gn="group1">
+              <div class="user-row-img">
+                <img src="./static/img/test_img.gif" class="icon-s radius" />
+              </div>
+              <div class="user-row-info">
+                <span>摸鱼</span>
+                <p>🐟🐟🐟🐟</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- 聊天室 - 右边 -->
+      <div class="room-right">
+        <div class="room-right-title">
+          聊天室
+        </div>
+        <!-- 聊天室 - 聊天内容 -->
+        <div class="room-right-content"></div>
+        <!-- 聊天室 - 聊天内容发送 -->
+        <div class="room-right-emit">
+          <div id="ifUser">
+            <textarea
+              id="content"
+              maxlength="255"
+              placeholder="点击我"
+            ></textarea>
+          </div>
+          <div class="right-emit">
+            <button id="submit">提交(Enter)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./static/js/socket.io.js"></script>
+    <script src="./static/js/class.js"></script>
+    <script src="./static/js/index.js"></script>
+  </body>
+</html>
