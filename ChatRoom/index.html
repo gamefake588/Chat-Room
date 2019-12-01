@@ -16,7 +16,19 @@
         <!-- 聊天室 - 个人信息 -->
         <div class="room-user-info">
           <section class="user-info-img user-img">
-            <img src="./static/img/test_img.gif" class="radius" />
+            <img
+              src="./static/img/test_img.gif"
+              class="radius"
+              title="个人头像"
+            />
+          </section>
+          <!-- 加入群聊 -->
+          <section class="user-add-group">
+            <img
+              src="./static/img/group.png"
+              class=" icon-s"
+              title="加入群聊"
+            />
           </section>
         </div>
         <!-- 聊天室 - 聊天对象列表 -->
@@ -33,7 +45,11 @@
           </div>
           <ul class="room-list">
             <!-- 聊天室 - 聊天对象 -->
-            <li class="room-user-row" data-gn="group1">
+            <li
+              class="room-user-row"
+              data-gn="摸鱼"
+              style="background-color: rgba(50, 152, 110, 0.5);"
+            >
               <div class="user-row-img">
                 <img src="./static/img/test_img.gif" class="icon-s radius" />
               </div>
@@ -48,7 +64,43 @@
       <!-- 聊天室 - 右边 -->
       <div class="room-right">
         <div class="room-right-title">
-          聊天室
+          <span id="GroupName">摸鱼</span>
+          <!-- 选项 -->
+          <div class="room-options">
+            <img
+              src="./static/img/options.png"
+              class="icon-xs room-right-options"
+              title="选项"
+            />
+            <!-- 群组信息 -->
+            <div class="group-info" data-is="hide" style="left:100%">
+              <div class="group-info-title">
+                群组信息
+              </div>
+              <div class="group-info-fn">
+                <h4>功能</h4>
+                <button id="CloseGroup">退出群聊</button>
+              </div>
+              <div class="group-info-mo">
+                <h4>在线成员<span>3</span></h4>
+                <ul>
+                  <li>
+                    <!-- 用户头像 -->
+                    <div>
+                      <img
+                        src="./static/img/test_img.gif"
+                        class="icon-s radius"
+                      />
+                    </div>
+                    <!-- 用户名称 -->
+                    <div>
+                      giao
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- 聊天室 - 聊天内容 -->
         <div class="room-right-content"></div>

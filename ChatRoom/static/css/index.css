@@ -6,13 +6,17 @@
 
 html {
   height: 100vh;
-  /* background-color: #FCEAFC; */
-  background-image: url(bg1.jpg);
+  background-color: #272343;
+  /* background-image: url(bg1.jpg); */
   box-sizing: border-box;
 }
 
 li {
   list-style: none;
+}
+
+button {
+  cursor: pointer;
 }
 
 .icon-xs {
@@ -45,22 +49,18 @@ li {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
   height: 1px;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  -webkit-box-shadow: none;
   background: #4dd599;
-  -webkit-box-shadow: none;
 }
 
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: none;
   border-radius: 10px;
   background: #fff;
-  -webkit-box-shadow: none;
 }
 
 /* 弹出注册框 */
@@ -172,13 +172,14 @@ li {
   height: inherit;
   background-color: #48c38d;
 }
-
-.user-info-img {
+.room-user-info > section {
   position: absolute;
   left: 50%;
-  top: 5%;
   transform: translateX(-50%);
   cursor: pointer;
+}
+.user-info-img {
+  top: 5%;
 }
 
 .user-info-img::before {
@@ -191,6 +192,11 @@ li {
   height: 10px;
   border-radius: 50%;
   background-color: #51eaea;
+}
+
+/* 加入群聊 */
+.user-add-group {
+  bottom: 5%;
 }
 
 /* 聊天室 - 聊天对象列表*/
@@ -259,12 +265,66 @@ li {
 .room-right-title {
   display: flex;
   align-items: center;
-  padding-left: 20px;
+  justify-content: space-between;
+  padding: 0 20px;
   height: 10%;
   border-bottom: 1px solid #48c38d;
   font-size: 1.5rem;
   letter-spacing: 5px;
   color: #2b2b28;
+}
+
+.room-right-options {
+  cursor: pointer;
+}
+
+.group-info {
+  position: absolute;
+  width: 25%;
+  height: 80vh;
+  top: 0;
+  background-color: #4dd599;
+  left: 100%;
+  z-index: 3;
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+.group-info > div {
+  padding: 5px 15px;
+}
+
+.group-info > div h4 {
+  font-size: 1.2rem;
+  padding: 5px 0;
+}
+
+.group-info .group-info-title {
+  background-color: #3fb683;
+  height: 10%;
+  border-bottom: 1px solid #fff;
+  display: flex;
+  font-size: 1.5rem;
+  align-items: center;
+}
+
+.group-info-fn button {
+  padding: 8px;
+  border: none;
+  background-color: #dd514c;
+  color: #fff;
+  border-radius: 2px;
+}
+
+.group-info-mo > ul > li {
+  display: flex;
+  margin: 8px 0;
+}
+
+.group-info-mo > ul > li div:nth-child(1) {
+  width: 45px;
 }
 
 /* 聊天室 - 聊天内容*/

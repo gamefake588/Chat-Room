@@ -18,14 +18,21 @@ soc.on("connection", socket => {
   });
   console.log("用户" + socket.id + "连接");
 
+  // 初始化
+  socket.emit("message", {
+    text: "你好,世界！",
+    id: socket.id
+  });
+
   // 广播方法
   function onEmit(gn, data) {
     socket.broadcast.to(gn).emit(gn, data);
   }
 
   // 默认分组
-  socket.on("group1", function(data) {
-    socket.join("group1");
+  socket.join("摸鱼");
+  socket.on("摸鱼", function(data) {
+    socket.join("摸鱼");
   });
 
   socket.on("msg", data => {
@@ -35,28 +42,35 @@ soc.on("connection", socket => {
     onEmit(data.gn, {
       text: text,
       id: data.id,
-      name: data.name
+      name: data.name,
+      gn: data.gn
     });
   });
 
   // 添加群组
   socket.on("add-group", data => {
     socket.join(data.gn);
-    // 查看房间信息
-    // console.log(soc.sockets.adapter.rooms);
   });
 
   // 切换群组
   socket.on("switch-group", data => {
     // 切换分组
-    socket.leave(data.oldGn);
+    // socket.leave(data.oldGn);
     socket.join(data.gn);
-    console.log(soc.sockets.adapter.rooms);
   });
 
-  socket.emit("message", {
-    text: "你好,世界！",
-    id: socket.id
+  // 加入已创建的群聊
+  socket.on("join-group", data => {
+    const _IF = soc.sockets.adapter.rooms[data.gn];
+    socket.emit("return-join-outcome", {
+      type: Boolean(_IF),
+      g_info: _IF
+    });
+  });
+
+  // 退出群组
+  socket.on("remove-group", data => {
+    socket.leave(data.gn);
   });
 });
 ser.listen(3000);
